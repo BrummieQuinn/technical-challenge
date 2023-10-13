@@ -7,7 +7,7 @@
 // invalid input message object
 const invalidInputMessages = {
   fullName: 'Please enter a valid name in the format "John Doe"',
-  emailAddress: 'Please enter a valid email address in the format "exa"example@domain.com/example@sub.domain.com/example@sub.domain.ac.uk"',
+  emailAddress: 'Please enter a valid email address in the format "example@domain.com\nexample@sub.domain.com\nexample@sub.domain.ac.uk"',
   creditCard: 'Please enter a valid 16-digit card number without spaces'
 
 };
@@ -16,16 +16,24 @@ const invalidInputMessages = {
 
 // function to display message for invalid input
 function invalidInputMessage(inputField, message) {
+  /*In order to make the newly created element readable by assistive technology I have added a unique ID for the invalid input message */
+  // create unique ID for message
+  let invalidMessageId = inputField.id + 'Invalid';
   // create and display message
   let invalidParagraph = document.createElement('p');
   invalidParagraph.classList.add('invalid');
   invalidParagraph.textContent = message;
+  // sets unique ID
+  invalidParagraph.id = invalidMessageId;
 
   // log for debug purposes
   console.log(inputField, message);
 
   // append message below input field
   inputField.parentNode.insertBefore(invalidParagraph, inputField.nextSibling);
+
+  // set aria-describedby attribute for assistive technology
+  inputField.setAttribute('aria-describedby', invalidMessageId);
 
   // highlight field - alert user to error
   inputField.style.borderColor = 'rgb(231,0,100)';
@@ -83,16 +91,14 @@ submitButton.addEventListener('click', (event) => {
   event.preventDefault();
   // create variables to store validation results
   let fullNameValid = validateFullName(fullName.value);
-  console.log(fullNameValid);
   let emailAddressValid = validateEmail(emailAddress.value);
-  console.log(emailAddressValid);
   let creditCardValid = validateCreditCard(creditCard.value);
-  console.log(creditCardValid);
+  // log input for debugging
   console.log(fullNameValid, emailAddressValid, creditCardValid);
   // check all fields valid
   if (fullNameValid && emailAddressValid && creditCardValid) {
     // populate user email with relevant values
-    // template literals for placement of field input in mailto: url string
+    // template literals for placement of field input in mailto: url scheme string
     let formSubmission = `mailto:challenge@dn-uk.com?subject=Purchase Submission&body=Name: ${fullName.value}%0D%0AEmail: ${emailAddress.value}%0D%0ACredit Card: ${creditCard.value}`;
 
     // access user email

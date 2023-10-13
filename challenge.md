@@ -1056,8 +1056,57 @@ console.log(formSubmission, submitButton);
 
 ### Planning: 13/10/2023:
 - given the date and how close I am to finishing this technical challenge within my personal deadline of 7 days I plan to upload into my github into a private repository, both for posterity and to have my work somewhere safe in the case of worse case scenario.
+- I feel so much better knowing my github is in a repository, safe and sound.  While not I'm not using it for version control, its still something I try to use regularly while building anything and this is something I would normally set up first, but the pull of the project had me not follow my normal practice here.
 
+- So today is the final day and I plan to add aria and keyboard navigation to the HTML framework before matching the app to the wireframe using CSS.
+- My first stop was to look up more about are roles and attributed relevent to my html, I've heard that if the html is semantic, aria shouldn't be required.  However I believe it would be better to rely on aria that will inform the users screen reader.  I've also found out about tab Index but since I never use anything I can't fully explain, whether they're used relys on my comprehension
 
+- I have used semantic html elements which apparantly has better support for assistive technology so I may not need to do much
+- The tab index attribute allows me to make the input fields focusable sequentially - sequential focus navigation (more new things, this challenge has been so good for me, I've grown my skills, learned new things through research and gained so much more confidence in my abilities as a developer)
+- Accept integer as a value, results integer value dependent
+- an HTML element with tabindex attribute with any valid integer value - can be focused with Javascript:
+  - call focus() method
+  - visually by click of mouse (click event?)
+- By giving element tabindex="1" - will control whether element is tabbable  - reachable via tab key using sequential keyboard navigation
+- turns out both ```<input>``` and ```<button>``` both have a default tabindex="0" - makes them automatically focusable by keyboard and script
+- it seems since they're already in semantic order there isn't anything I need to do here. The key here is less is more and the more you know the more chance you can make the right decision
+- I definitely need the invalid input message to be accessible to assistive technologies, so more research, I am so over my head at this point though lol
+
+- Get in, so I found that I  can use the setAttribute() method for the p element created in the invalidInputMessage() function I created can allow me to add the attribute aria-describedby that I used in the html input elements which would make them instantly available to the technology as it appears in real time hopefully
+
+- aria-decribedby according to MDN identifies the element(s) that describes the element on which it is set
+  - lists id's of elements that describe object
+  - establishes a relationship between groups e.g. inputs and the text that describes them
+  - can be used on hidden elements
+
+- I had to modify my script slightly to make sure I could get the assistive technology to read the error input and found that by modifying the invalidInputMessage function  to set the aria-describedby attribute on the input field
+- The attribute references the elements ID that contains the error message. I added the line to set the aria-describedby attribute to the invalid input message, this would also assign the new element an ID to match the hard coded elements
+- I then needed to create a variable to store and create the input id concatenated with 'Invalid' like the hardcoded html elements
+- I had to update the html to reflect new aria-describedby attribute too
+- this means screen readers will know the invalid input message with id="fullNameInvald" that is created is associated with the fullName input field, thereby reading the message when the input is invalid
+
+- Right now thats done onto the CSS.  I added a legend for assistive technology so the first thing I need to do is hide the legend from sighted users in order to match the wireframe from the user stories
+- I went on CSS Tricks to research this and found an approach referred to as the screen reader only or sr-only class which is considered best practice for hiding content while maintaining accessiblity
+```css
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+
+.sr-only:not(:focus):not(:active) {
+  /* clip property- specifies rectangular region to be displayed - hides element by setting to (0 0 0 0) */
+  clip: rect(0 0 0 0); 
+  /* clip-path property - create shapes/paths to define visible part of an element - inset(50%* = create path covering 50% of element to hide it */
+  clip-path: inset(50%);
+  height: 1px;
+  /* overflow property - ensures any content that exceeds defines space is hidden */
+  overflow: hidden;
+  /* position property - set to absolute - taken out of flow and positioned according to nearest ancestor (fieldset) */
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+```
+- The way this css works is by making it extremely small by setting the clip region to zero
+- after adding this I will begin matching the wireframe
 
 
 
@@ -1066,7 +1115,8 @@ console.log(formSubmission, submitButton);
 
 ### Reflection: 12/12/2023:
 - Now I've come to this point, possibly just over halfway? I've decided to start the reflection task as I think of it now, this will give me something to work with for the actual one I  will write (200+ words)
-
+- I gave myself a personal challenge to complete it in 7 days - after reading the timeframe for the best candidates.  I wanted to prove to myself that despite my disability of Fibromyalgia, that I could work to the same time table. I recieved the challenge at 16:20 on Friday 6th and spent the rest of the evening lost in thought.
+- In my head I began working out what skills I currently had, which parts were within my ability scope and which parts would require more research.  This meant that by Saturday 7th I was at my computer with a general idea of what I needed to accomplish, how I would approach the challenge and how I could possibly enhance the final product with accessibility features i noticed had not mentioned in the user stories.  I noticed the same about the testing suite. While simple I decided to go with the approach that I was building a real life app that would be used by many.
 - This technical challenge has been really fun, I was able to use skills I currently have and learn new ones. 
 - I was able to learn a new checksum algortithm, which, while frustrating, was a challenging, enjoyable and rewarding learning experience.
 - I was able to match each line of the  C++ code example given to the intructions steps, by doing this, I was able to build a luhn algorithm for a credit card that uses regular expression to check for both pattern and length in javascript
@@ -1104,11 +1154,15 @@ console.log(formSubmission, submitButton);
 
 - How did you implement the code?
 - I implemented the code systematically, following a well-defined plan. I began by breaking down the challenge into manageable components, starting with the HTML framework and then moving on to JavaScript for each form field, finally concluding with CSS for layout and design. This step-by-step approach ensured that I could tackle the challenge effectively while continuously testing and verifying each part. The choice to use semantic HTML and prioritize mobile-first design aligned with best practices and accessibility standards.
+- I extensively used the dev tools emulators to ensure I could build a solid app that can render on both mobile and desktop.
+- I did do a few searches to refresh my memory in order to make sure the design was responsive. Here I made use of CSS tricks which is my go to for help with design and layout and was able to use the em unit and flexbox to accomodate the messages to the user for invalid input
 
 - Expanding on this response, you can provide more details about your workflow plan. Discuss how you approached each component, including HTML, JavaScript, and CSS. Explain your rationale for starting with HTML and following a mobile-first design approach. Mention any specific methodologies or best practices you followed, such as using semantic HTML and ensuring web accessibility. You can describe how you structured your code files and the tools or libraries you used.
 
 - What have you learned?
 - This technical challenge has been a valuable learning experience. I not only enhanced my coding skills but also gained new knowledge, particularly in crafting regular expressions and understanding the Luhn algorithm. Additionally, the ability to interpret and apply C++ code to JavaScript was an enlightening experience. I learned the importance of considering web accessibility for a more inclusive user experience and how to work from user stories to meet specific requirements.
+
+- while I would class my html and css abilities my strongest out of the three including Javascript.  While ensuring my validation page would be accessible I had to refresh my knowledge of aria labels and best use cases. I also enhanced my Javascript knowledge by learning how to dynamically add content that can be read by assistive technology in real time using the setAttribute() method and creating assosiative ID's.  while researching keyboard navigation I was pleasently surprised to have found I had covered it by making sure my HTML was semantic and logical.  I'm also happy to have learned how to hide content visually but keep available to screen readers.  Accessibility is really important to me, so being able to add these new skills is invaluble to me as a developer
 
 - In this section, you can delve into the specific technical skills you acquired during this challenge. Discuss how you deepened your understanding of regular expressions and the Luhn algorithm. Explain how your knowledge of C# fundamentals allowed you to interpret C++ code and apply it to JavaScript. You can also mention any new insights into web accessibility and how it impacts user experience.
 
@@ -1116,5 +1170,7 @@ console.log(formSubmission, submitButton);
 - If I were to approach this challenge differently, I would seek feedback from the Marketing Director or other stakeholders about the wireframe. I would inquire whether adding instructions to guide users on the expected input format in each field would enhance the user experience while still fulfilling the Marketing Director's needs. Such feedback could further refine the form and minimize issues related to invalid input patterns.
 
 - discuss your aspirations for code optimization and efficiency. You can explain that you recognize the potential for improvement in your validation functions but felt constrained by your current knowledge and time limitations. You might express your eagerness to further develop your skills in this area to enhance the performance and efficiency of your code in future projects.
+
+- If I knew more about code optimisation, efficiency and performance such as 'Big O' I would have used this while writing my code.  I also know I could have written my Javascript differently if I had known more about the Object Oriented Design Paradigm. If I knew how to refine and refactor my functions better I believe I would have reduced redundancy in my code also
 
 - When discussing what you would do differently, emphasize the importance of seeking feedback from stakeholders, such as the Marketing Director. Explain that you would inquire about the wireframe and potential enhancements, like adding instructions for expected input formats. Discuss how such feedback can lead to a more user-friendly solution and streamline the process of dealing with invalid input patterns.

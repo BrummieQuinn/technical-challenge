@@ -1,0 +1,99 @@
+/* sr-only = hiding class (sr = screen reader)
+content visible to screen readers but hidden on page */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* mobile first styles */
+/* General styling */
+body {
+  box-sizing: border-box;
+  font-family: Calibri;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  margin-left: 0.5em; 
+  font-family: Calibri;
+  font-size: 11px;
+  width: 14em;
+}
+
+
+/* matching the wireframe */
+
+.labels {
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.validation_form_container {
+  padding-top: 3em;
+  margin: 20em 8em;  
+  border: 4px solid black;
+  border-radius: 2.1em;
+  width: 20em;
+  background-color: rgb(137, 200, 46);
+  align-content: center;
+  
+}
+
+.validation_form {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+/* align inputs */
+#creditCard {
+  margin-left: 0.9em;
+}
+#emailAddress {
+  margin-left: 0.6em;
+}
+/* style submit button */
+.submit {
+  margin: 0;
+  border-radius: 0.4em;
+  text-align: center;
+  width: 5em;
+  background-color: rgb(231, 0,100);
+}
+
+/* styling for invalid input messages*/
+.invalid {
+  color: rgb(231, 0,100);
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 1em;
+  
+}
+
+/* desktop media query */
+@media (min-width: 768px) {
+  body {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .submit {
+    width: 5em;
+  }
+}

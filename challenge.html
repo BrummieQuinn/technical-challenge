@@ -22,29 +22,48 @@
   <body>
     <main class="validation">
       <fieldset class="validation_form_container">
-        <form class="validation_form">
-          <label for="fullName"> 
-            Name:
-            <input type="text" id="fullName" name="fullName" placeholder="Enter Your Name" aria-required="true">
-          </label>
-          <br>
-          <br>
-          <label for="emailAddress">
-            Email:
-            <input type="email" id="emailAddress" placeholder="Enter Your Email" aria-required="true">
-          </label>
-          <br>
-          <br>
-          <label for="creditCard">
-            Card:
-            <input type="text" id="creditCard" placeholder="Enter a proxy Credit Card Number" aria-required="true">
-          </label>
-          <br>
-          <br>
-          <button type="submit" class="submit">Submit</button>
-        </form>
-
-      </fieldset>
+        <legend class="sr-only">Course Purchase Form</legend>
+          <form class="validation_form">
+            <label for="fullName" class="labels"> 
+              Name: 
+              <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              placeholder="Enter Your Name"
+              required
+              aria-required="true"
+              aria-describedby="fullNameInvalid">
+            </label>
+            
+            <label for="emailAddress" class="labels">
+              Email:
+              <input 
+              type="email" 
+              id="emailAddress" 
+              placeholder="Enter Your Email"
+              required
+              aria-required="true"
+              aria-describedby="emailAddressInvalid">
+            </label>
+          
+            <label for="creditCard" class="labels">
+              Card:
+              <input 
+              type="text" 
+              id="creditCard" 
+              placeholder="Enter a proxy Credit Card Number." 
+              required
+              aria-required="true"
+              aria-describedby="creditCardInvalid">
+            </label>
+          
+            <button 
+            type="submit" 
+            class="submit"
+            aria-labelledby="Submit the form">Submit</button>
+          </form>
+      </fieldse>
 
     </main>
     <script src="challenge.js"></script>
