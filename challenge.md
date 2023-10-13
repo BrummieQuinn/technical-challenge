@@ -1108,13 +1108,12 @@ console.log(formSubmission, submitButton);
 - The way this css works is by making it extremely small by setting the clip region to zero
 - after adding this I will begin matching the wireframe
 
+- and we're done. in less than 7 days from when i started!
 
-
-
-
-
-### Reflection: 12/12/2023:
+## Task 3: Reflection: 
+### Planning: 12/12/2023:
 - Now I've come to this point, possibly just over halfway? I've decided to start the reflection task as I think of it now, this will give me something to work with for the actual one I  will write (200+ words)
+
 - I gave myself a personal challenge to complete it in 7 days - after reading the timeframe for the best candidates.  I wanted to prove to myself that despite my disability of Fibromyalgia, that I could work to the same time table. I recieved the challenge at 16:20 on Friday 6th and spent the rest of the evening lost in thought.
 - In my head I began working out what skills I currently had, which parts were within my ability scope and which parts would require more research.  This meant that by Saturday 7th I was at my computer with a general idea of what I needed to accomplish, how I would approach the challenge and how I could possibly enhance the final product with accessibility features i noticed had not mentioned in the user stories.  I noticed the same about the testing suite. While simple I decided to go with the approach that I was building a real life app that would be used by many.
 - This technical challenge has been really fun, I was able to use skills I currently have and learn new ones. 

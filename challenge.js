@@ -57,8 +57,6 @@ const emailAddress = document.getElementById('emailAddress');
 const creditCard = document.getElementById('creditCard');
 const submitButton = document.querySelector('.submit');
 
-// check variables hold fields - development only
-// console.log(submitButton);
 
 // event listeners to trigger validation on blur events
 
