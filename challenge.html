@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge" />
+    <meta
+      name="author"
+      content="Georgina Carrington" />
+    <meta
+      name="description"
+      content="validation form" />
+    <title>Validation Form</title>
+    <link
+      rel="stylesheet"
+      href="challenge.css" />
+  </head>
+  <body>
+    <main class="validation">
+      <fieldset class="validation_form_container">
+        <form class="validation_form">
+          <label for="fullName"> 
+            Name:
+            <input type="text" id="fullName" name="fullName" placeholder="Enter Your Name" aria-required="true">
+          </label>
+          <br>
+          <br>
+          <label for="emailAddress">
+            Email:
+            <input type="email" id="emailAddress" placeholder="Enter Your Email" aria-required="true">
+          </label>
+          <br>
+          <br>
+          <label for="creditCard">
+            Card:
+            <input type="text" id="creditCard" placeholder="Enter a proxy Credit Card Number" aria-required="true">
+          </label>
+          <br>
+          <br>
+          <button type="submit" class="submit">Submit</button>
+        </form>
+
+      </fieldset>
+
+    </main>
+    <script src="challenge.js"></script>
+  </body>
+</html>
